@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "title": "Demi-journée, plein d'adrénaline",
+    "subtitle": "Quad ou Buggy !",
+    "description": "",
+    "sections": ["Description", "Prices", "Details"],
+    "maxPeople": 4,
+    "pricing": [
+      { "activity": "Quad Conducteur", "price": 60, "currency": "EUR" },
+      { "activity": "Passager", "price": 20, "currency": "EUR" },
+      { "activity": "Buggy biplace", "price": 180, "currency": "EUR" },
+      { "activity": "Buggy 4 places", "price": 300, "currency": "EUR" }
+    ]
+  },
+  {
+    "id": "desert-adventure",
+    "title": "L'aventure vous appelle",
+    "subtitle": "Quad ou Buggy ?",
+    "description": "",
+    "sections": ["Description", "Prix", "Points"],
+    "maxPeople": 4,
+    "pricing": [
+      { "activity": "Quad Conducteur", "price": 130, "currency": "EUR" },
+      { "activity": "Passager", "price": 20, "currency": "EUR" },
+      { "activity": "Buggy biplace", "price": 300, "currency": "EUR" },
+      { "activity": "Buggy 4 places", "price": 500, "currency": "EUR" },
+      { "activity": "Déjeuner chez l’habitant", "price": 20, "currency": "EUR" }
+    ]
+  },
+  {
+    "id": "parapente-atlas",
+    "title": "Prenez votre envol avec Parapente Atlas",
+    "subtitle": "Réservez votre vol dès maintenant",
+    "description": "",
+    "sections": ["Description", "Prix", "Points"],
+    "maxPeople": "N/A",
+    "pricing": [
+      { "activity": "Par personne", "price": 80, "currency": "EUR" }
+    ]
+  },
+  {
+    "id": "agafay-camel",
+    "title": "Un voyage sensoriel à Agafay",
+    "subtitle": "Découvrez-le à dos de dromadaire",
+    "description": "",
+    "sections": ["Description", "Prix", "Points"],
+    "maxPeople":"2 ou 4 ou plus",
+    "pricing": [
+      { "activity": "De 2 à 4 personnes", "price": 60, "currency": "EUR" },
+      { "activity": "Plus de 4 personnes", "price": 50, "currency": "EUR" }
+    ]
+  },
+  {
+    "id": "optimum-buggy-expedition",
+    "title": "Développez-vous vers de nouveaux horizons",
+    "subtitle": "Rejoignez l'expédition Optimum Buggy",
+    "description": "",
+    "sections": ["Description", "Prix", "Points"],
+    "maxPeople": 4,
+    "pricing": [
+      { "activity": "Quad Conducteur", "price": 100, "currency": "EUR" },
+      { "activity": "Passager", "price": 60, "currency": "EUR" },
+      { "activity": "Buggy biplace Pilote", "price": 200, "currency": "EUR" },
+      { "activity": "Buggy biplace Passager", "price": 60, "currency": "EUR" },
+      { "activity": "Buggy 4 places Pilote", "price": 300, "currency": "EUR" },
+      { "activity": "Buggy 4 places Par passager", "price": 60, "currency": "EUR" },
+      { "activity": "Dromadaire 1h", "price": 20, "currency": "EUR" },
+      { "activity": "Dîner", "price": 20, "currency": "EUR" }
+    ]
+  }
+]

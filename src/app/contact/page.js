@@ -23,6 +23,7 @@ import {
   Map,
   Navigation,
 } from "lucide-react";
+import ContactForm from "./ContactForm";
 
 export const metadata = {
   title: "Contactez-nous | Quad Marrakech - Excursions en Quad à Marrakech",
@@ -40,7 +41,6 @@ export const metadata = {
     canonical: "https://quadmarrakech.com/contact",
   },
 };
-
 // Équipe
 const teamMembers = [
   {
@@ -263,127 +263,7 @@ export default function ContactPage() {
       {/* Section Formulaire et Carte */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Formulaire de contact */}
-          <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-10">
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-charcoal mb-2">
-                Envoyez-nous un message
-              </h2>
-              <p className="text-gray-600">
-                Remplissez le formulaire ci-dessous et nous vous répondrons dans
-                les plus brefs délais.
-              </p>
-            </div>
-
-            <form className="space-y-6">
-              {/* Nom */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                  <User className="w-4 h-4 text-primary" />
-                  Nom complet *
-                </label>
-                <input
-                  type="text"
-                  placeholder="Jean Dupont"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
-                  required
-                />
-              </div>
-
-              {/* Email et Téléphone */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-primary" />
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="jean@email.com"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-primary" />
-                    Téléphone
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="+212 6XX XXX XXX"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
-                  />
-                </div>
-              </div>
-
-              {/* Sujet */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-primary" />
-                  Sujet *
-                </label>
-                <select
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
-                  required
-                >
-                  <option value="">Sélectionnez un sujet</option>
-                  <option value="reservation">Réservation</option>
-                  <option value="information">Demande d'information</option>
-                  <option value="groupe">Réservation de groupe</option>
-                  <option value="devis">Demande de devis</option>
-                  <option value="autre">Autre</option>
-                </select>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                  <Send className="w-4 h-4 text-primary" />
-                  Message *
-                </label>
-                <textarea
-                  rows={5}
-                  placeholder="Décrivez votre demande..."
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors resize-none"
-                  required
-                ></textarea>
-              </div>
-
-              {/* Checkbox consentement */}
-              <div className="flex items-start gap-3">
-                <input type="checkbox" id="consent" className="mt-1" required />
-                <label htmlFor="consent" className="text-sm text-gray-600">
-                  J'accepte que mes données soient traitées pour répondre à ma
-                  demande et j'ai pris connaissance de la{" "}
-                  <Link
-                    href="/privacy"
-                    className="text-primary hover:underline"
-                  >
-                    politique de confidentialité
-                  </Link>
-                  .
-                </label>
-              </div>
-
-              {/* Bouton d'envoi */}
-              <button
-                type="submit"
-                className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group"
-              >
-                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                Envoyer le message
-              </button>
-
-              {/* Réponse garantie */}
-              <p className="text-xs text-gray-500 text-center flex items-center justify-center gap-1">
-                <CheckCircle className="w-3 h-3 text-green-500" />
-                Réponse garantie sous 24h
-              </p>
-            </form>
-          </div>
-
+          <ContactForm />
           {/* Carte et informations */}
           <div className="space-y-6">
             {/* Carte Google Maps (iframe) */}
@@ -401,7 +281,7 @@ export default function ContactPage() {
               ></iframe>
             </div>
 
-            {/* Comment venir */}
+            {/* Comment venir
             <div className="bg-white rounded-3xl shadow-2xl p-6">
               <h3 className="text-lg font-semibold text-charcoal mb-4 flex items-center gap-2">
                 <Navigation className="w-5 h-5 text-primary" />
@@ -431,7 +311,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Horaires détaillés */}
             <div className="bg-white rounded-3xl shadow-2xl p-6">

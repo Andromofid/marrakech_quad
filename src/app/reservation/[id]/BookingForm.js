@@ -131,6 +131,7 @@ export default function BookingForm({ prestation }) {
           email,
           phone,
           total: formattedTotal,
+          message,
         }),
       });
 

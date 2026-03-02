@@ -47,6 +47,8 @@ export default function BookingForm({ prestation }) {
   const [newsletter, setNewsletter] = useState(false);
   const [terms, setTerms] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const activities = useMemo(() => prestation.pricing ?? [], [prestation]);
   const selectedActivity = activities[activityIndex];
@@ -95,8 +97,16 @@ export default function BookingForm({ prestation }) {
   ];
 
   function nextStep() {
-    if (step === 1 && !date) return;
-    if (step === 2 && (!name || !email || !phone)) return;
+    if (step === 1 && !date) {
+      setError("Veuillez sélectionner une date.");
+      return;
+    }
+    setError(null);
+    if (step === 2 && (!name || !email || !phone)) {
+      setError("Veuillez remplir tous les champs obligatoires.");
+      return;
+    }
+    setError(null);
     setStep(step + 1);
   }
 
@@ -104,11 +114,10 @@ export default function BookingForm({ prestation }) {
     setStep(step - 1);
   }
 
-
   async function onSubmit(e) {
     e.preventDefault();
     if (!name || !email) return;
-
+    setLoading(true);
     try {
       const res = await fetch("/api/send-booking", {
         method: "POST",
@@ -118,7 +127,6 @@ export default function BookingForm({ prestation }) {
         body: JSON.stringify({
           activity: selectedActivity?.activity,
           date,
-          participants,
           name,
           email,
           phone,
@@ -129,12 +137,13 @@ export default function BookingForm({ prestation }) {
       const data = await res.json();
 
       if (data.success) {
+        setLoading(false);
         setSubmitted(true);
       } else {
-        alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        setError("Erreur lors de l'envoi. Veuillez réessayer.");
       }
     } catch (err) {
-      alert("Erreur serveur.");
+      setError("Erreur serveur.");
     }
   }
 
@@ -209,7 +218,7 @@ export default function BookingForm({ prestation }) {
             <span className="text-white/80">
               {step === 1 && "Choix de l'activité"}
               {step === 2 && "Vos coordonnées"}
-              {step === 3 && "Paiement"}
+              {step === 3 && "Confirmation"}
             </span>
           </div>
           <div className="flex gap-1">
@@ -225,7 +234,13 @@ export default function BookingForm({ prestation }) {
         </div>
       </div>
 
-      <form onSubmit={onSubmit} className="p-6">
+      <form className="p-6">
+        {error && (
+          <div className="flex items-center gap-2 bg-red-100 text-red-700 px-4 py-3 rounded-lg mb-4">
+            <AlertCircle className="w-5 h-5" />
+            {error}
+          </div>
+        )}
         {/* Étape 1: Choix de l'activité */}
         {step === 1 && (
           <div className="space-y-6">
@@ -303,33 +318,6 @@ export default function BookingForm({ prestation }) {
               </div>
             </div>
 
-            {/* Nombre de participants */}
-            {/* <div>
-              <label className="block text-sm font-medium text-zinc-700 mb-1 flex items-center gap-1">
-                <Users className="w-4 h-4" />
-                Nombre de participants *
-              </label>
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setParticipants(Math.max(1, participants - 1))}
-                  className="w-10 h-10 rounded-full border border-zinc-300 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
-                >
-                  -
-                </button>
-                <span className="w-16 text-center font-semibold">
-                  {participants}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setParticipants(Math.min(8, participants + 1))}
-                  className="w-10 h-10 rounded-full border border-zinc-300 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
-                >
-                  +
-                </button>
-              </div>
-            </div> */}
-
             {/* Résumé partiel */}
             {selectedActivity && (
               <div className="bg-light rounded-xl p-4">
@@ -385,7 +373,7 @@ export default function BookingForm({ prestation }) {
                 <div>
                   <label className="block text-sm font-medium text-zinc-700 mb-1 flex items-center gap-1">
                     <Phone className="w-4 h-4" />
-                    Téléphone
+                    Téléphone *
                   </label>
                   <input
                     type="tel"
@@ -411,47 +399,6 @@ export default function BookingForm({ prestation }) {
                   placeholder="Informations complémentaires (allergies, demande spéciale...)"
                 />
               </div>
-
-              {/* <div className="space-y-3">
-                <label className="flex items-start gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={newsletter}
-                    onChange={(e) => setNewsletter(e.target.checked)}
-                    className="mt-1"
-                  />
-                  <span className="text-sm text-zinc-600">
-                    Je souhaite recevoir les offres spéciales et actualités
-                  </span>
-                </label>
-
-                <label className="flex items-start gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={terms}
-                    onChange={(e) => setTerms(e.target.checked)}
-                    className="mt-1"
-                    required
-                  />
-                  <span className="text-sm text-zinc-600">
-                    J'accepte les{" "}
-                    <Link
-                      href="/terms"
-                      className="text-primary hover:underline"
-                    >
-                      conditions générales
-                    </Link>{" "}
-                    et la{" "}
-                    <Link
-                      href="/privacy"
-                      className="text-primary hover:underline"
-                    >
-                      politique de confidentialité
-                    </Link>{" "}
-                    *
-                  </span>
-                </label>
-              </div> */}
             </div>
           </div>
         )}
@@ -504,54 +451,11 @@ export default function BookingForm({ prestation }) {
                 </div>
               </div>
             </div>
-
-            {/* Simulateur de carte (pour la démo) */}
-            {/* <div className="space-y-3">
-              <div>
-                <label className="block text-sm font-medium text-zinc-700 mb-1">
-                  Numéro de carte
-                </label>
-                <input
-                  type="text"
-                  placeholder="4242 4242 4242 4242"
-                  className="w-full rounded-xl border border-zinc-300 px-4 py-3 focus:border-primary focus:outline-none"
-                  disabled
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-sm font-medium text-zinc-700 mb-1">
-                    Date d'expiration
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="MM/AA"
-                    className="w-full rounded-xl border border-zinc-300 px-4 py-3 focus:border-primary focus:outline-none"
-                    disabled
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-zinc-700 mb-1">
-                    CVV
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="123"
-                    className="w-full rounded-xl border border-zinc-300 px-4 py-3 focus:border-primary focus:outline-none"
-                    disabled
-                  />
-                </div>
-              </div>
-
-              <p className="text-xs text-zinc-500 text-center">
-                🚀 Mode démo - Aucun paiement réel n'est effectué
-              </p>
-            </div> */}
           </div>
         )}
 
         {/* Navigation buttons */}
+
         <div className="flex justify-between gap-3 mt-8 pt-6 border-t">
           {step > 1 ? (
             <button
@@ -581,10 +485,15 @@ export default function BookingForm({ prestation }) {
             </button>
           ) : (
             <button
-              type="submit"
+              type="button"
+              onClick={(e) => {
+                onSubmit(e);
+              }}
               className="flex-1 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2"
             >
-              Confirmer la réservation
+              {loading
+                ? "En cours de traitement..."
+                : "Confirmer la réservation"}
               <CheckCircle className="w-4 h-4" />
             </button>
           )}

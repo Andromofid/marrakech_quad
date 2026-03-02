@@ -4,7 +4,7 @@ export async function POST(req) {
   try {
     const body = await req.json();
 
-    const { activity, date, participants, name, email, phone, total } =
+    const { activity, date, name, email, phone, total } =
       body;
 
     // Configure transporter (Gmail example)
@@ -29,7 +29,6 @@ export async function POST(req) {
         <hr/>
         <p><strong>Activité:</strong> ${activity}</p>
         <p><strong>Date:</strong> ${date}</p>
-        <p><strong>Participants:</strong> ${participants}</p>
         <p><strong>Total:</strong> ${total}</p>
       `,
     });
@@ -46,7 +45,6 @@ export async function POST(req) {
         <hr/>
         <p><strong>Activité:</strong> ${activity}</p>
         <p><strong>Date:</strong> ${date}</p>
-        <p><strong>Participants:</strong> ${participants}</p>
         <p><strong>Total:</strong> ${total}</p>
         <br/>
         <p>Nous vous contacterons bientôt.</p>

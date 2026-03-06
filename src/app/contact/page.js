@@ -191,7 +191,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Carte Téléphone */}
           <a
-            href="tel:+212600000000"
+            href="tel:+212777517159"
             className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-all duration-300 transform hover:-translate-y-2"
           >
             <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
@@ -219,7 +219,7 @@ export default function ContactPage() {
             </h3>
             <p className="text-sm text-gray-500 mb-3">Réponse sous 24h</p>
             <p className="text-primary font-semibold group-hover:underline">
-              contact@quadmarrakech.com
+              ymofid18@gmail.com
             </p>
           </a>
 
@@ -496,8 +496,8 @@ export default function ContactPage() {
             name: "Quad Marrakech",
             description: "Service d'excursions en quad à Marrakech",
             url: "https://quadmarrakech.com",
-            telephone: "+212600000000",
-            email: "contact@quadmarrakech.com",
+            telephone: "+212777517159",
+            email: "ymofid18@gmail.com",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Marrakech",

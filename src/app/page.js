@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import EquipmentShowcase from "@/components/EquipmentShowcase";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import OurServices from "@/components/OurServices";
 
 export const metadata = {
   title: "Quad Marrakech | Excursion en Quad Palmeraie & Désert",
@@ -181,37 +182,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURES
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-charcoal mb-4">
-              Pourquoi Nous Choisir
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Nous offrons la meilleure expérience en quad à Marrakech, avec des
-              guides professionnels et un équipement de qualité.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="p-6 bg-light rounded-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-charcoal mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
+      <OurServices />
+      {/* Section Pourquoi Nous Choisir */}
       <WhyChooseUs />
       {/* Équipement */}
       <EquipmentShowcase />

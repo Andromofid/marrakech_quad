@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import prestations from "./reservation/prestations.json";
+
 import {
   Star,
   Clock,
@@ -8,6 +10,13 @@ import {
   ChevronRight,
   Phone,
   Mail,
+  Sparkles,
+  Award,
+  Clock1,
+  Users,
+  Bike,
+  Euro,
+  ChevronRightCircle,
 } from "lucide-react";
 
 export const metadata = {
@@ -174,45 +183,95 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* TESTIMONIALS
-      <section className="py-20 bg-charcoal">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
-              Avis de Nos Clients
-            </h2>
-            <p className="text-sand/80 max-w-2xl mx-auto">
-              Découvrez les témoignages de nos aventuriers satisfaits.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm p-6 rounded-xl"
-              >
-                <h4 className="font-semibold text-white mb-2">
-                  {testimonial.name} – {testimonial.country}
-                </h4>
-
-                <div className="flex mb-3">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-
-                <p className="text-white/90 italic">"{testimonial.comment}"</p>
-              </div>
-            ))}
-          </div>
+      {/* Section Tarifs - Style cartes prix */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-3">
+            Choisissez votre aventure
+          </h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            Des formules adaptées à tous les niveaux, de la Palmeraie au désert
+          </p>
         </div>
-      </section> */}
 
+        {/* Grille prix */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {prestations.map((activity) => {
+            const minPrice = Math.min(...activity.pricing.map((p) => p.price));
+            const isPopular = activity.id === 1; // Premier = populaire
+
+            return (
+              <div
+                key={activity.id}
+                className={`
+            relative bg-white rounded-2xl transition-all duration-300
+            ${
+              isPopular
+                ? "shadow-xl border-2 border-primary scale-[1.02]"
+                : "shadow-md hover:shadow-xl border border-gray-100"
+            }
+          `}
+              >
+                {isPopular && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                    🌟 Plus populaire
+                  </div>
+                )}
+
+                <div className="p-6">
+                  {/* En-tête */}
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-charcoal mb-1">
+                      {activity.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 line-clamp-2">
+                      {activity.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Prix */}
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold text-primary">
+                      {minPrice}€
+                    </span>
+                    <span className="text-gray-400 text-sm ml-1">/pers</span>
+                  </div>
+
+                  {/* Options */}
+                  <div className="space-y-2 mb-4">
+                    {activity.pricing.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center justify-between text-sm"
+                      >
+                        <span className="text-gray-600">{item.activity}</span>
+                        <span className="font-semibold text-gray-800">
+                          {item.price}€
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Bouton */}
+                  <Link
+                    href={`/reservation/${activity.id}`}
+                    className={`
+                block w-full py-3 px-4 rounded-xl text-center font-medium transition-all
+                ${
+                  isPopular
+                    ? "bg-primary text-white hover:bg-primary-dark shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-primary hover:text-white"
+                }
+              `}
+                  >
+                    Réserver maintenant
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
       {/* CTA FINAL */}
       <section className="py-20 bg-gradient-to-r from-primary to-primary-dark">
         <div className="max-w-4xl mx-auto px-6 text-center">

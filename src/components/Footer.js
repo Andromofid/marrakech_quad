@@ -139,7 +139,7 @@ export default function Footer() {
             {/* Contact Info Cards */}
             <div className="space-y-3">
               <a
-                href="tel:+212600000000"
+                href="tel:+212777527159"
                 className="flex items-center gap-3 text-sand/80 hover:text-primary transition-colors group p-2 rounded-lg hover:bg-white/5"
               >
                 <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -149,12 +149,12 @@ export default function Footer() {
                   <span className="text-sm text-sand/60">
                     Appelez-nous 24/7
                   </span>
-                  <p className="font-semibold">+212 600 000 000</p>
+                  <p className="font-semibold">+212 777 527 159</p>
                 </div>
               </a>
 
               <a
-                href="mailto:info@quadmarrakech.com"
+                href="mailto:ymofid18@gmail.com"
                 className="flex items-center gap-3 text-sand/80 hover:text-primary transition-colors group p-2 rounded-lg hover:bg-white/5"
               >
                 <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -162,7 +162,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <span className="text-sm text-sand/60">Email</span>
-                  <p className="font-semibold">info@quadmarrakech.com</p>
+                  <p className="font-semibold">ymofid18@gmail.com</p>
                 </div>
               </a>
 
@@ -250,7 +250,7 @@ export default function Footer() {
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
-                  href={social.href}
+                  href={``}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center justify-between p-2 rounded-lg hover:bg-white/5 transition-colors group ${social.bgColor} hover:scale-105 transform duration-300`}

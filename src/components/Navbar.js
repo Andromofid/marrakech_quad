@@ -47,10 +47,10 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           {/* Phone */}
           <a
-            href="tel:+212600000000"
+            href="tel:+212777527159"
             className="text-charcoal font-medium text-sm lg:text-base hover:text-primary transition"
           >
-            ☎ +212 600 000 000
+            ☎ +212 777 527 159
           </a>
 
           {/* CTA */}
@@ -91,7 +91,7 @@ export default function Navbar() {
                 href="tel:+212600000000"
                 className="block text-center px-4 py-3 text-charcoal font-medium hover:text-primary transition"
               >
-                ☎ +212 600 000 000
+                ☎ +212 777 5271  159
               </a>
 
               <Link

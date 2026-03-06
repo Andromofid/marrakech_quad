@@ -44,8 +44,6 @@ export const metadata = {
   },
 };
 
-
-
 // Données des images (placeholders)
 const galleryImages = [
   // Palmeraie
@@ -104,18 +102,6 @@ const galleryImages = [
     featured: true,
   },
   {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1682686580391-6fb85f1c6b50?q=80&w=1000",
-    title: "Pistes du désert",
-    description: "Des pistes infinies pour les amateurs de sensations",
-    category: "desert",
-    likes: 245,
-    views: 1678,
-    location: "Désert d'Agafay",
-    date: "2024-03-08",
-    photographer: "Youssef A.",
-  },
-  {
     id: 6,
     src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
     title: "Oasis cachée",
@@ -141,30 +127,6 @@ const galleryImages = [
     date: "2024-03-14",
     photographer: "Karim B.",
     featured: true,
-  },
-  {
-    id: 8,
-    src: "https://images.unsplash.com/photo-1495954484750-af4693e0fecd?q=80&w=1000",
-    title: "L'heure dorée",
-    description: "Moment magique où le soleil embrase le désert",
-    category: "sunset",
-    likes: 289,
-    views: 1987,
-    location: "Désert d'Agafay",
-    date: "2024-03-09",
-    photographer: "Youssef A.",
-  },
-  {
-    id: 9,
-    src: "https://images.unsplash.com/photo-1426604966848-d7adac402b88?q=80&w=1000",
-    title: "Silhouettes",
-    description: "Nos quads se découpant sur le soleil couchant",
-    category: "sunset",
-    likes: 201,
-    views: 1543,
-    location: "Désert d'Agafay",
-    date: "2024-03-02",
-    photographer: "Hassan I.",
   },
 
   // Plus d'images
@@ -205,7 +167,6 @@ const galleryImages = [
     photographer: "Hassan I.",
   },
 ];
-
 
 export default function GalleryPage() {
   return (
@@ -263,8 +224,6 @@ export default function GalleryPage() {
         </div>
       </section>
 
-     
-
       {/* Grille principale */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Images en vedette */}
@@ -292,8 +251,6 @@ export default function GalleryPage() {
 
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                    
 
                     {/* Actions */}
                     <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -354,7 +311,6 @@ export default function GalleryPage() {
                 {/* Overlay au survol */}
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-          
                 {/* Actions */}
                 <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button className="bg-white/90 backdrop-blur-sm text-charcoal p-1.5 rounded-full hover:bg-primary hover:text-white transition-colors">
@@ -393,9 +349,7 @@ export default function GalleryPage() {
             </div>
           ))}
         </div>
-
       </section>
-
 
       {/* Section Instagram */}
       <section className="bg-gradient-to-br from-primary/5 to-primary/10 py-20">
@@ -414,7 +368,7 @@ export default function GalleryPage() {
             {galleryImages.slice(0, 8).map((image) => (
               <a
                 key={image.id}
-                href="https://instagram.com/quadmarrakech"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative aspect-square overflow-hidden rounded-xl"
@@ -434,7 +388,7 @@ export default function GalleryPage() {
 
           <div className="text-center mt-8">
             <a
-              href="https://instagram.com/quadmarrakech"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300"
@@ -445,8 +399,6 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
-
-
 
       {/* Données structurées pour SEO */}
       <script

@@ -17,6 +17,7 @@ import {
   Bike,
   Euro,
   ChevronRightCircle,
+  User,
 } from "lucide-react";
 
 export const metadata = {
@@ -49,7 +50,33 @@ export default function Home() {
       description: "Accès exclusif aux plus beaux paysages de Marrakech.",
     },
   ];
-
+  // Équipe
+  const teamMembers = [
+    {
+      name: "Karim Benjelloun",
+      role: "Guide Principal",
+      experience: "10 ans d'expérience",
+      languages: ["Français", "Arabe", "Anglais", "Espagnol"],
+      image: "/team/karim.jpg",
+      specialty: "Expert désert",
+    },
+    {
+      name: "Youssef Amrani",
+      role: "Guide & Formateur",
+      experience: "8 ans d'expérience",
+      languages: ["Français", "Arabe", "Anglais"],
+      image: "/team/youssef.jpg",
+      specialty: "Spécialiste Palmeraie",
+    },
+    {
+      name: "Hassan Idrissi",
+      role: "Guide & Photographe",
+      experience: "6 ans d'expérience",
+      languages: ["Français", "Arabe", "Anglais", "Allemand"],
+      image: "/team/hassan.jpg",
+      specialty: "Photos & vidéos",
+    },
+  ];
   const testimonials = [
     {
       name: "Sophie Martin",
@@ -270,6 +297,67 @@ export default function Home() {
               </div>
             );
           })}
+        </div>
+      </section>
+      {/* Section Équipe */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl font-bold text-charcoal mb-4">
+              Nos Guides Professionnels
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Une équipe passionnée et expérimentée à votre service pour vivre
+              la meilleure expérience
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="group bg-gradient-to-b from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2"
+              >
+                <div className="relative h-64 bg-gradient-to-br from-primary/30 to-primary/10">
+                  {/* Avatar placeholder */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
+                      <User className="w-12 h-12 text-primary" />
+                    </div>
+                  </div>
+                  {/* Badge spécialité */}
+                  <div className="absolute bottom-4 left-4 bg-primary text-white text-xs px-3 py-1.5 rounded-full">
+                    {member.specialty}
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-charcoal mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-primary font-medium mb-2">{member.role}</p>
+                  <p className="text-sm text-gray-500 mb-3">
+                    {member.experience}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {member.languages.map((lang, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"
+                      >
+                        {lang}
+                      </span>
+                    ))}
+                  </div>
+
+                  <button className="w-full border border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                    Contacter {member.name.split(" ")[0]}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       {/* CTA FINAL */}

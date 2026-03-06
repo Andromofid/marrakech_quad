@@ -123,33 +123,32 @@ export default function OurServices() {
 
         {/* Services Row - Responsive Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mt-10">
-          {prestations.map((service, index) => (
-            <Link
-              key={service.id}
-              href={`/reservation/${service.id}`}
-              className={`group bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center hover:-translate-y-1 p-4 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {/* Icon */}
-              <div className="text-primary mb-3 group-hover:scale-110 transition-transform">
-                {getActivityIcon(service.title)}
-              </div>
+          {prestations.map((service, index) => {
+            const isLast = index === prestations.length - 1;
 
-              {/* Title */}
-              <h3 className="text-sm sm:text-base font-semibold text-gray-800 leading-tight">
-                {service.title}
-              </h3>
+            return (
+              <Link
+                key={service.id}
+                href={`/reservation/${service.id}`}
+                className={`group bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center hover:-translate-y-1 p-4 
+      
+      ${isLast ? "col-span-2 sm:col-span-1" : ""}
+      
+      ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                {/* Icon */}
+                <div className="text-primary mb-3 group-hover:scale-110 transition-transform">
+                  {getActivityIcon(service.title)}
+                </div>
 
-              {/* Price - Optional: You can uncomment this if you want to show price */}
-              {/* <p className="text-xs sm:text-sm text-primary font-medium mt-2">
-                À partir de {service.pricing?.[0]?.price}€
-              </p> */}
-            </Link>
-          ))}
+                {/* Title */}
+                <h3 className="text-sm sm:text-base font-semibold text-gray-800 leading-tight">
+                  {service.title}
+                </h3>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

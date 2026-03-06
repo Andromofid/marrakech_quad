@@ -56,8 +56,6 @@ const equipmentBrands = [
   },
 ];
 
-
-
 export default function EquipmentShowcase() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -82,7 +80,7 @@ export default function EquipmentShowcase() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-50 to-white"
+      className="relative py-18 overflow-hidden bg-white"
     >
       {/* Éléments décoratifs de fond */}
       <div className="absolute inset-0 opacity-30">
@@ -108,6 +106,11 @@ export default function EquipmentShowcase() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-3">
             Équipement d'aventure
+            <br />
+            <span className="text-primary">
+              {" "}
+              des meilleures marques réputées
+            </span>
           </h2>
 
           <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">

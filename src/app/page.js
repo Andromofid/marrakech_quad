@@ -20,6 +20,7 @@ import {
   User,
 } from "lucide-react";
 import EquipmentShowcase from "@/components/EquipmentShowcase";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 export const metadata = {
   title: "Quad Marrakech | Excursion en Quad Palmeraie & Désert",
@@ -180,7 +181,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURES */}
+      {/* FEATURES
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -210,7 +211,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <WhyChooseUs />
+      {/* Équipement */}
       <EquipmentShowcase />
       {/* Section Tarifs - Style cartes prix */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

@@ -22,6 +22,8 @@ import {
 import EquipmentShowcase from "@/components/EquipmentShowcase";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import OurServices from "@/components/OurServices";
+import PricingSection from "@/components/PricingSection";
+import TeamSection from "@/components/TeamSection";
 
 export const metadata = {
   title: "Quad Marrakech | Excursion en Quad Palmeraie & Désert",
@@ -78,29 +80,6 @@ export default function Home() {
       languages: ["Français", "Arabe", "Anglais", "Allemand"],
       image: "/team/hassan.jpg",
       specialty: "Photos & vidéos",
-    },
-  ];
-  const testimonials = [
-    {
-      name: "Sophie Martin",
-      country: "France",
-      rating: 5,
-      comment:
-        "Une expérience incroyable ! Les guides sont professionnels et les paysages sont magnifiques.",
-    },
-    {
-      name: "Thomas Dubois",
-      country: "France",
-      rating: 5,
-      comment:
-        "Organisation parfaite et quad en excellent état. Je recommande vivement.",
-    },
-    {
-      name: "Isabella Rossi",
-      country: "Italie",
-      rating: 5,
-      comment:
-        "Une aventure exceptionnelle dans le désert. Nous reviendrons sans hésiter !",
     },
   ];
 
@@ -183,155 +162,15 @@ export default function Home() {
       </section>
 
       <OurServices />
+
       {/* Section Pourquoi Nous Choisir */}
       <WhyChooseUs />
       {/* Équipement */}
       <EquipmentShowcase />
       {/* Section Tarifs - Style cartes prix */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-3">
-            Choisissez votre aventure
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Des formules adaptées à tous les niveaux, de la Palmeraie au désert
-          </p>
-        </div>
-
-        {/* Grille prix */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {prestations.map((activity) => {
-            const minPrice = Math.min(...activity.pricing.map((p) => p.price));
-            const isPopular = activity.id === 1; // Premier = populaire
-
-            return (
-              <div
-                key={activity.id}
-                className={`
-            relative bg-white rounded-2xl transition-all duration-300
-            ${
-              isPopular
-                ? "shadow-xl border-2 border-primary scale-[1.02]"
-                : "shadow-md hover:shadow-xl border border-gray-100"
-            }
-          `}
-              >
-                {isPopular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                    🌟 Plus populaire
-                  </div>
-                )}
-
-                <div className="p-6">
-                  {/* En-tête */}
-                  <div className="mb-4">
-                    <h3 className="text-xl font-bold text-charcoal mb-1">
-                      {activity.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 line-clamp-2">
-                      {activity.subtitle}
-                    </p>
-                  </div>
-
-                  {/* Prix */}
-                  <div className="mb-4">
-                    <span className="text-3xl font-bold text-primary">
-                      {minPrice}€
-                    </span>
-                    <span className="text-gray-400 text-sm ml-1">/pers</span>
-                  </div>
-
-                  {/* Options */}
-                  <div className="space-y-2 mb-4">
-                    {activity.pricing.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center justify-between text-sm"
-                      >
-                        <span className="text-gray-600">{item.activity}</span>
-                        <span className="font-semibold text-gray-800">
-                          {item.price}€
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Bouton */}
-                  <Link
-                    href={`/reservation/${activity.id}`}
-                    className={`
-                block w-full py-3 px-4 rounded-xl text-center font-medium transition-all
-                bg-primary text-white hover:bg-primary-dark shadow-md`}
-                  >
-                    Réserver maintenant
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      <PricingSection prestations={prestations} />
       {/* Section Équipe */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl font-bold text-charcoal mb-4">
-              Nos Guides Professionnels
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Une équipe passionnée et expérimentée à votre service pour vivre
-              la meilleure expérience
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="group bg-gradient-to-b from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="relative h-64 bg-gradient-to-br from-primary/30 to-primary/10">
-                  {/* Avatar placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
-                      <User className="w-12 h-12 text-primary" />
-                    </div>
-                  </div>
-                  {/* Badge spécialité */}
-                  <div className="absolute bottom-4 left-4 bg-primary text-white text-xs px-3 py-1.5 rounded-full">
-                    {member.specialty}
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-charcoal mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-primary font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-gray-500 mb-3">
-                    {member.experience}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {member.languages.map((lang, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"
-                      >
-                        {lang}
-                      </span>
-                    ))}
-                  </div>
-
-                  <button className="w-full border border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-4 rounded-lg transition-colors">
-                    Contacter {member.name.split(" ")[0]}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TeamSection teamMembers={teamMembers} />
       {/* CTA FINAL */}
       <section className="py-20 bg-gradient-to-r from-primary to-primary-dark">
         <div className="max-w-4xl mx-auto px-6 text-center">

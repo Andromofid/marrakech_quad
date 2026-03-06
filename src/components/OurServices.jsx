@@ -88,7 +88,7 @@ export default function OurServices() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-gray-50"
+      className="relative py-12 overflow-hidden bg-gray-50"
     >
       {/* Éléments décoratifs */}
       <div className="absolute inset-0 opacity-30">

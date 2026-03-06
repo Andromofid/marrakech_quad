@@ -80,7 +80,7 @@ export default function EquipmentShowcase() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-18 overflow-hidden bg-white"
+      className="relative py-12 overflow-hidden bg-white"
     >
       {/* Éléments décoratifs de fond */}
       <div className="absolute inset-0 opacity-30">
@@ -113,7 +113,8 @@ export default function EquipmentShowcase() {
             </span>
           </h2>
 
-          <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="hidden md:block text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            {" "}
             Nous sommes conscients que disposer du bon équipement et des
             véhicules appropriés peut être déterminant pour votre expérience
             d'aventure. C'est pourquoi nous investissons pleinement dans
@@ -126,7 +127,7 @@ export default function EquipmentShowcase() {
         </div>
 
         {/* Grille des marques */}
-        <div className="mb-20">
+        <div className="">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {equipmentBrands.map((brand, index) => (
               <div

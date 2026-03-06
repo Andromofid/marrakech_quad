@@ -202,7 +202,7 @@ export default function ContactPage() {
             </h3>
             <p className="text-sm text-gray-500 mb-3">24h/24 - 7j/7</p>
             <p className="text-primary font-semibold group-hover:underline">
-              +212 600 000 000
+              +212 777527159
             </p>
           </a>
 
@@ -225,7 +225,7 @@ export default function ContactPage() {
 
           {/* Carte WhatsApp */}
           <a
-            href="https://wa.me/212600000000"
+            href="https://wa.me/+212777527159"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-6 transition-all duration-300 transform hover:-translate-y-2"
@@ -238,7 +238,7 @@ export default function ContactPage() {
             </h3>
             <p className="text-sm text-gray-500 mb-3">Réponse instantanée</p>
             <p className="text-primary font-semibold group-hover:underline">
-              +212 600 000 000
+              +212 777527159
             </p>
           </a>
 
@@ -447,7 +447,7 @@ export default function ContactPage() {
 
           <div className="flex justify-center gap-4">
             <a
-              href="https://facebook.com/quadmarrakech"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/10 hover:bg-white/20 text-white p-4 rounded-xl transition-all duration-300 transform hover:scale-110"
@@ -456,7 +456,7 @@ export default function ContactPage() {
               <Facebook className="w-6 h-6" />
             </a>
             <a
-              href="https://instagram.com/quadmarrakech"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/10 hover:bg-white/20 text-white p-4 rounded-xl transition-all duration-300 transform hover:scale-110"
@@ -465,7 +465,7 @@ export default function ContactPage() {
               <Instagram className="w-6 h-6" />
             </a>
             <a
-              href="https://youtube.com/quadmarrakech"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/10 hover:bg-white/20 text-white p-4 rounded-xl transition-all duration-300 transform hover:scale-110"
@@ -474,7 +474,7 @@ export default function ContactPage() {
               <Youtube className="w-6 h-6" />
             </a>
             <a
-              href="https://wa.me/212600000000"
+              href="https://wa.me/+212777527159"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/10 hover:bg-white/20 text-white p-4 rounded-xl transition-all duration-300 transform hover:scale-110"

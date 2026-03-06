@@ -284,12 +284,7 @@ export default function Home() {
                     href={`/reservation/${activity.id}`}
                     className={`
                 block w-full py-3 px-4 rounded-xl text-center font-medium transition-all
-                ${
-                  isPopular
-                    ? "bg-primary text-white hover:bg-primary-dark shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-primary hover:text-white"
-                }
-              `}
+                bg-primary text-white hover:bg-primary-dark shadow-md`}
                   >
                     Réserver maintenant
                   </Link>
